@@ -27,3 +27,9 @@ After you install all required files and libraries go to **App Folder** and migr
 <img src="https://github.com/barkhayot/school-system/blob/main/screencapture-localhost-8000-classes-enrolledCourseModel-2022-02-02-13_20_55.jpg" width="800" height="700"/>
 <img src="https://github.com/barkhayot/school-system/blob/main/screencapture-localhost-8000-classes-getCourseModel-2022-02-02-13_21_10.jpg" width="800" height="700"/>
 
+## Database Relationship
+
+
+<img src="https://github.com/barkhayot/school-system/blob/main/DB%20Relationship.png" width="800" height="700"/>
+
+
