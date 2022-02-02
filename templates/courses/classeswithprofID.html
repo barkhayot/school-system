@@ -1,0 +1,76 @@
+{% extends "base/base.html" %}
+{% block content %}
+
+        <div class="container">
+    
+            <h2 style="text-align:center">Courses that has been Enrolled  </h2>
+        
+            <div class="padding">
+                <div class="row container d-flex justify-content-center">
+                    <div class="note" style="text-align: center;">
+                        
+                    </div>
+                    <div class="col-lg-12 grid-margin stretch-card">
+                        <div class="card">
+                            <div class="card-body">
+                               <div class="head" style="text-align: center;">
+                                <h4>Course Table</h4>
+                                <br>
+                            </div>
+                                
+                                <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                                    <table id="htmltable" class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Course Name</th>
+                                                <th >Course ID</th>
+                                                <th>Department</th>
+                                                <th>Professor</th>
+                                                <th>Credit</th>
+                                                <th>Student</th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        
+                                        
+                                        <tbody>
+                                            {% for class_pr in class_prs %}
+                                            <tr>
+                                                
+                                                <td>{{class_pr.couese.course_name}}</td>
+                                                <td>{{class_pr.couese.course_num}}</td>
+                                                <td>{{class_pr.couese.department}}</td>
+                                                <td> {{class_pr.couese.professor.first_name}} {{class_pr.couese.professor.last_name}}</td>
+                                                <td>{{class_pr.couese.credit}}</td>
+                                                <td><a href="{% url 'studentswithclassID' class_pr.id %}">{{class_pr.couese.place}}</a></td>
+                                            
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                        
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                </div>
+        
+                <br>
+                    <br>
+        
+                    
+                    <br>
+                    <br>
+            </div>
+        </div>
+        
+        
+    
+        
+        
+
+
+
+
+{% endblock %}

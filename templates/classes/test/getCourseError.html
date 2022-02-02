@@ -1,0 +1,47 @@
+{% extends "base/base.html" %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <h2 style="text-align: center;" >Current Course Status</h2>
+        <h4 style="text-align: center; color: red;">You have already Enrolled this Course! Please check your course board.</h4>
+        <div class="col-md-12">
+            <div class="card shadow-lg card-body h-100 border-info" >
+                <hr>
+                <h5>Course Title : {{course.course_name}}</h5>
+                <h5>Course Status : <span style="color: red;" >Enrolled</span> </h5>
+                <h5>Course Number : {{course.course_num}}</h5>
+                <h5>Department : {{course.department}}</h5>
+                <h5>Professor : {{course.professor.first_name}} {{course.couese.professor.last_name}}</h5>
+                <h5>Credits : {{course.credit}}</h5>
+                <hr>
+                
+                <h5>
+                    Description about current course :
+                </h5>
+                <br>
+                
+                    <p>{{course.couese.description}}</p>
+
+                    </p>
+            </div>
+        </div>
+
+    </div>
+    <br>
+        <br>
+        <div class="header" style="text-align: center;">
+            <a href="{% url 'getCourseModel' %}" class="btn btn-primary btn-lg">Back to Courses</a>
+        </div>
+        <br>
+        <br>
+    
+    </div>
+
+{% endblock %}
+
+
+
+
+<h2>Hey You have already taken this course</h2>
+{{course.course_name}}

@@ -1,0 +1,71 @@
+{% extends "base/base.html" %}
+{% block content %}
+
+        <div class="container">
+    
+            <h2 style="text-align:center">Students for {{st_class.couese.course_name}}  </h2>
+        
+            <div class="padding">
+                <div class="row container d-flex justify-content-center">
+                    <div class="note" style="text-align: center;">
+                        
+                    </div>
+                    <div class="col-lg-12 grid-margin stretch-card">
+                        <div class="card">
+                            <div class="card-body">
+                               <div class="head" style="text-align: center;">
+                                <h4>Students Table</h4>
+                                <br>
+                            </div>
+                                
+                                <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                                    <table id="htmltable" class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Student Name</th>
+                                                <th>Student ID</th>
+                                                <th>Course</th>
+                                                
+                                                
+                                            </tr>
+                                        </thead>
+                                        
+                                        
+                                        <tbody>
+                                            {% for st in sts %}
+                                            <tr>
+                                                
+                                                <td>{{st.student.first_name}} {{st_class.student.last_name}}</td>
+                                                <td>{{st.student.account_id}}</td>
+                                                <td>{{st_class.couese.course_name}}</td>
+                                                
+                                                
+                                                
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                        
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                </div>
+        
+                <br>
+                    <br>
+        
+                    
+                    <br>
+                    <br>
+            </div>
+        </div>
+        
+        
+        
+        
+
+
+
+{% endblock %}

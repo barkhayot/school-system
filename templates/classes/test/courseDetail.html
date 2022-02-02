@@ -1,0 +1,49 @@
+{% extends "base/base.html" %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <h2 style="text-align: center;" >About Current Course</h2>
+        <div class="col-md-12">
+            <div class="card shadow-lg card-body h-100 border-info" >
+                <hr>
+                <h5>Course Title : {{course.couese.course_name}}</h5>
+                <h5>Course Number : {{course.couese.course_num}}</h5>
+                <h5>Department : {{course.couese.department}}</h5>
+                <h5>Professor : {{course.couese.professor.first_name}} {{course.couese.professor.last_name}}</h5>
+                <h5>Credits : {{course.couese.credit}}</h5>
+                <hr>
+                
+                <h5>
+                    Description about current course :
+                </h5>
+                <br>
+                
+                    <p>{{course.couese.description}}</p>
+
+                    </p>
+
+                    <br>
+                <br>
+                <div class="header" style="text-align: center;">
+                <form action="{% url 'deleteCourseModel' course.id %}" method="POST">
+                    {% csrf_token %}
+                <button class="btn btn-danger btn-lg">Remove Course</button>
+                </form>
+                </div>
+            </div>
+        
+
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="header" style="text-align: center;">
+    <a href="{% url 'enrolledCourseModel' %}" class="btn btn-primary btn-lg">Back to Enrolled Courses</a>
+</div>
+    <br>
+    <br>
+
+</div>
+
+{% endblock %}

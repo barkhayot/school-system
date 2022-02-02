@@ -1,0 +1,60 @@
+{% extends "base/base.html" %}
+{% block content %}
+
+
+<div class="container">
+    <h2 style="text-align:center">Welcome to system Student {{user.first_name}} {{user.last_name}}  </h2>
+<hr>
+
+    <div class="row">
+        <div class="col-6">
+            <div class="card shadow-lg card-body h-100 border-info" >
+                <h4>Student Info : </h4>
+                <hr>
+                <h6>Student Name : {{user.first_name}}{{user.last_name}}</h6>
+                <h6>Student ID : {{user.account_id}}</h7>
+                <h6>Student Email : {{user.email}}</h6>
+                <h6>Student Phone : {{user.phone_number}}</h6>
+                
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card shadow-lg card-body h-100 border-info" >
+                <h4 style="font-style:normal">Classes : </h4>
+                <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                    <table id="htmltable" class="table">
+                        <thead>
+                            <tr>
+                                <th>Course Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for course in courses %}
+                            <tr>
+                                <td>{{course.couese.course_name}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+    <br>
+            <br>
+
+            <div class="button" style="text-align: center;">
+                <a href="{% url 'enrolledCourseModel' %}" class="btn btn-primary btn-lg">View My Course Table</a>
+            </div>
+
+            <br>
+            <br>
+    
+
+    
+
+</div>
+
+{% endblock %}

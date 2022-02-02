@@ -1,0 +1,78 @@
+{% extends "base/base.html" %}
+{% block content %}
+        {% for course in courses %}
+
+        <h3>{{course.course_name}}</h3>
+        
+        {% endfor %}
+
+<style>
+.my-custom-scrollbar {
+position: relative;
+height: 200px;
+overflow: auto;
+}
+.table-wrapper-scroll-y {
+display: block;
+}
+</style>
+    
+
+<div class="page-content page-container" id="page-content">
+    <div class="padding">
+        <div class="row container d-flex justify-content-center">
+            <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h4 class="card-title">Basic Table</h4>
+                                <p class="card-description"> Basic table with card </p>
+                            </div>
+                            <div class="col-md-4 text-right"> <button id="exporttable" class="btn btn-primary">Export</button> </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table id="htmltable" class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Course Name</th>
+                                        <th>Course ID</th>
+                                        <th>Department</th>
+                                        <th>Professor</th>
+                                        <th>Credit</th>
+                                        <th>Student</th>
+                                    </tr>
+                                </thead>
+                                </table>
+                        </div>
+                        <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                            <table id="htmltable" class="table">
+                               
+                                
+                                <tbody>
+                                    {% for course in courses %}
+                                    <tr>
+                                        
+                                        <td>{{course.course_name}}</td>
+                                        <td>{{course.course_number}}</td>
+                                        <td>{{course.department}}</td>
+                                        <td> {{course.professor.first_name}} {{course.professor.last_name}}</td>
+                                        <td>{{course.credit}}</td>
+                                        <td>{{course.place}}</td>
+                                    
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </span>
+                                
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

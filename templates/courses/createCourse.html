@@ -1,0 +1,63 @@
+
+{% extends "base/base.html" %}
+{% block content %}
+<div class="container">
+
+<div class="card bg-light" style="text-align: center;">
+    <article class="card-body " style="max-width: 1200px;">
+        <h4 class="card-title mt-3 text-center">Course Register page</h4>
+        <hr>
+        <br>
+        <form method="POST"  action="">
+                {% csrf_token %}
+    
+                <h5>{{message}}</h5>
+            
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">   </div>
+                    {{form.course_name}}
+                </div> <!-- form-group// -->
+                <br>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">   </div>
+                    {{form.course_num}}
+                </div> <!-- form-group// -->
+                <br>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">   </div>
+                    {{form.department}}
+                </div> <!-- form-group// -->
+                <br>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">   </div>
+                    {{form.credit}}
+                </div> <!-- form-group// -->
+                <br>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">   </div>
+                    {{form.place}}
+                </div> <!-- form-group// -->
+                <br>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">   </div>
+                    {{form.description}}
+                </div> <!-- form-group// -->
+                <br>
+                <div class="form-group">
+                    <br>
+                    <button type="submit" class="btn  btn-block btn-primary" style="border-radius: 50px; ; color: white;"> Register Course  </button>
+                </div> <!-- form-group// -->  
+        </form>
+        <br>
+    </article>
+
+</div>
+
+</div>
+
+    
+
+
+{% endblock %}
+
+

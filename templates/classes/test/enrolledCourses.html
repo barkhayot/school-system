@@ -1,0 +1,95 @@
+{% extends "base/base.html" %}
+{% block content %}
+
+
+<style>
+    .my-custom-scrollbar {
+    position: relative;
+    height: 400px;
+    overflow: auto;
+    }
+    .table-wrapper-scroll-y {
+    display: block;
+    }
+    </style>
+    
+    
+    <div class="page-content page-container" id="page-content">
+        <div class="padding">
+            <div class="row container d-flex justify-content-center">
+                <div class="note" style="text-align: center;">
+                    <h2>Note</h2>
+                    <h6 style="color: red;">Please check your course list carefully before you remove any course from your list in order not to lack of credits  </h6>
+                </div>
+                <div class="col-lg-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                           <div class="head" style="text-align: center;">
+                            <h4>Student Course Table</h4>
+                            <br>
+                        </div>
+                            
+                            <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                                <table id="htmltable" class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Course Name</th>
+                                            <th >Course ID</th>
+                                            <th>Department</th>
+                                            <th>Professor</th>
+                                            <th>Credit</th>
+                                            <th>Student</th>
+                                            <th>Detail</th>
+                                            <th>Remove</th>
+                                        </tr>
+                                    </thead>
+                                    
+                                    
+                                    <tbody>
+                                        {% for course in courses %}
+                                        <tr>
+                                            
+                                            <td>{{course.couese.course_name}}</td>
+                                            <td>{{course.couese.course_num}}</td>
+                                            <td>{{course.couese.department}}</td>
+                                            <td>{{course.couese.professor.first_name}} {{course.professor.last_name}}</td>
+                                            <td>{{course.couese.credit}}</td>
+                                            <td>{{course.couese.place}}</td>
+                                            <td>
+                                                <a href="{% url 'courseModelDetail' course.id %}" class="btn btn-prmary btn-sm">Detail</a>
+                                            </td>
+                                            <td>
+                                                <form action="{% url 'deleteCourseModel' course.id %}" method="POST">
+                                                    {% csrf_token %}
+                                                    <button type="submit" class="btn btn-danger btn-sm">Remove</button>
+                                                </form>
+                                            </td>
+                                        
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                    
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+    
+            <br>
+                <br>
+    
+                <div class="button" style="text-align: center;">
+                    <a href="{% url 'getCourseModel' %}" class="btn btn-primary btn-lg">View All Courses Table</a>
+                </div>
+    
+                <br>
+                <br>
+        </div>
+    </div>
+    
+
+  
+
+{% endblock %}

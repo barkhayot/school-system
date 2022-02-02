@@ -1,0 +1,79 @@
+{% extends "base/base.html" %}
+{% block content %}
+
+<div class="container">
+    
+    <h2 style="text-align:center">Welcome to system Professor {{user.first_name}} {{user.last_name}}  </h2>
+
+    <div class="padding">
+        <div class="row container d-flex justify-content-center">
+            <div class="note" style="text-align: center;">
+                
+            </div>
+            <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                       <div class="head" style="text-align: center;">
+                        <h4>Course Table</h4>
+                        <br>
+                    </div>
+                        
+                        <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                            <table id="htmltable" class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Course Name</th>
+                                        <th >Course ID</th>
+                                        <th>Department</th>
+                                        <th>Professor</th>
+                                        <th>Credit</th>
+                                        <th>Student</th>
+                                        
+                                    </tr>
+                                </thead>
+                                
+                                
+                                <tbody>
+                                    {% for course in courses %}
+                                    <tr>
+                                        
+                                        <td>{{course.course_name}}</td>
+                                        <td>{{course.course_num}}</td>
+                                        <td>{{course.department}}</td>
+                                        <td> {{course.professor.first_name}} {{course.professor.last_name}}</td>
+                                        <td>{{course.credit}}</td>
+                                        <td>{{course.place}}</td>
+                                    
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                                
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <br>
+            <br>
+        <div class="row">
+            <div class="col" style="text-align: center;">
+                <a href="{% url 'CourseCreate' %}" class="btn btn-primary btn-lg">Register New Course</a>
+            </div>
+
+            <div class="col" style="text-align: center;">
+                <a href="{% url 'classwithprofID' %}" class="btn btn-danger btn-lg">Manage Classes</a>
+            </div>
+        </div>
+            <br>
+            <br>
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}
